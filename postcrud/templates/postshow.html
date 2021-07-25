@@ -1,3 +1,22 @@
-<h4><a href="{% url 'list' %}">뒤로가기</a></h4>
+{% extends 'base.html' %}
+{% block content %}
+
+<a href="{% url 'list' %}">뒤로가기</a></h4><br><br>
 <h4>제목 : {{ post.title }}</h4>
 <h4>내용 : {{ post.content }}</h4>
+
+{% if like %}
+{% load static %}
+    <a href="{% url 'like' post.id %}">
+        <button type="button"><img id="heart" src="{% static 'heart.png' %}"></button>
+        <br>좋아요 취소</a>
+    
+{% else %}
+    <a href="{% url 'like' post.id %}">
+        <button type="button"><img id="heart" src="{% static 'eheart.png' %}"></button>
+        <br>좋아요</a>
+   
+{% endif %}
+
+{% endblock %}
+

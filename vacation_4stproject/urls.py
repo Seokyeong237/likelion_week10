@@ -20,5 +20,6 @@ import postcrud.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', postcrud.views.list),
+    path('account/', include('account.urls')),
     path('postcrud/', include('postcrud.urls')),
 ]
